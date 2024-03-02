@@ -2,10 +2,11 @@ import json
 
 
 def get_name():
-    askName = input("What is your name? ")
+    global name
+    name = input("What is your name? ")
     with open("settings.json", "r") as infile:
         settings = json.load(infile)
-    settings["name"] = askName
+    settings["name"] = name
 
     with open("settings.json", "w") as outfile:
         json.dump(settings, outfile)
@@ -25,11 +26,9 @@ def get_language():
                 json.dump(settings, outfile)
             lang_entered = True
         else:
-            print("The entered language is not supported yet. We support:")
-            for lang in lang_list:
-                print(lang)
+            printLangs = input("The entered language is not supported yet. Do you want to see our supported languages? (y/n) ")
+            if printLangs.lower() == "y":
+                for lang in lang_list:
+                    print(lang)
 
 
-
-
-get_language()

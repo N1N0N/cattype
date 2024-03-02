@@ -38,7 +38,3 @@ def wpmTest():
         userInput = input("\n")
 
 
-
-
-wpmTest()
-

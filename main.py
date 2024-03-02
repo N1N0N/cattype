@@ -1,5 +1,10 @@
+import sys
 
-from colorama import Fore
+import wordGen
+import wpmTest
+import settings
+import json
+from colorama import Fore, Style
 
 cattype = """                                                                                                                                            
                                                                                                                                             
@@ -29,3 +34,36 @@ c:::::::cccccc:::::ca::::a    a:::::a      t::::::tttt:::::t  t::::::tttt:::::t 
 
 
 print(Fore.BLUE + cattype)
+print(Style.RESET_ALL)
+
+
+def initialise():
+    with open("settings.json", "r") as infile:
+        settingss = json.load(infile)
+    if settingss["name"] == "":
+        settings.get_name()
+        settings.get_language()
+        mainScreen()
+    else:
+        print("Welcome back, " + settingss["name"] + ".")
+        mainScreen()
+
+
+def mainScreen():
+        exit = False
+        while exit is False:
+            print("-------------------")
+            print("1 | Start WPM Test")
+            print("2 | Change Settings")
+            print("3 | Exit")
+            mainChoice = input("\n")
+            if mainChoice == "1":
+                wpmTest.wpmTest()
+            elif mainChoice == "2":
+                settings.get_language()
+            elif mainChoice == "3":
+                sys.exit()
+
+
+if __name__ == "__main__":
+    initialise()
