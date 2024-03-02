@@ -1,6 +1,5 @@
 import sys
 
-import wordGen
 import wpmTest
 import settings
 import json
@@ -55,13 +54,16 @@ def mainScreen():
             print("-------------------")
             print("1 | Start WPM Test")
             print("2 | Change Settings")
-            print("3 | Exit")
+            print("3 | Check Stats")
+            print("4 | Exit")
             mainChoice = input("\n")
             if mainChoice == "1":
                 wpmTest.wpmTest()
             elif mainChoice == "2":
-                settings.get_language()
+                settings.settingMenu()
             elif mainChoice == "3":
+                wpmTest.checkStats()
+            else:
                 sys.exit()
 
 
