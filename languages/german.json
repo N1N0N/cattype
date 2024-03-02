@@ -1,10 +1,4 @@
 {
-  "name": "german",
-  "additionalAccents": [
-    ["ä", "ae"],
-    ["ö", "oe"],
-    ["ü", "ue"]
-  ],
   "words": [
     "der",
     "die",
